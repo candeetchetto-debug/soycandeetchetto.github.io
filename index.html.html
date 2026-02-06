@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANDELA ETCHETTO — Manifiesto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --noir: #1a1a1a;
+            --ivory: #faf9f7;
+            --lila-primary: #b8a5d6;
+            --lila-deep: #8b7ba8;
+            --lila-soft: #e8e0f5;
+            --lila-muted: #d4c8e8;
+            --gold-accent: #c9b896;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--ivory);
+            color: var(--noir);
+            line-height: 1.8;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        /* Subtle texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8a5d6' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Butterfly decorative elements */
+        .butterfly-ornament {
+            position: fixed;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .butterfly-1 {
+            top: 10%;
+            right: 5%;
+            width: 180px;
+            animation: floatButterfly 20s ease-in-out infinite;
+        }
+
+        .butterfly-2 {
+            bottom: 15%;
+            left: 8%;
+            width: 140px;
+            animation: floatButterfly 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatButterfly {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -30px) rotate(5deg); }
+            50% { transform: translate(0, -50px) rotate(-3deg); }
+            75% { transform: translate(-20px, -30px) rotate(3deg); }
+        }
+
+        /* Header section */
+        .header {
+            text-align: center;
+            padding: 80px 0 120px;
+            position: relative;
+            border-bottom: 1px solid var(--lila-muted);
+        }
+
+        .header-label {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--lila-deep);
+            margin-bottom: 40px;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out 0.3s forwards;
+        }
+
+        .butterfly-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 40px;
+            opacity: 0;
+            animation: butterflyReveal 2s ease-out 0.6s forwards;
+        }
+
+        @keyframes butterflyReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotate(-20deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 68px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: var(--noir);
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out 0.9s forwards;
+        }
+
+        h1 strong {
+            font-weight: 600;
+        }
+
+        .header-subtitle {
+            font-size: 15px;
+            letter-spacing: 1px;
+            color: var(--lila-deep);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.9;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out 1.2s forwards;
+        }
+
+        /* Section styling */
+        .section {
+            margin: 100px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 1.5s; }
+        .section:nth-child(3) { animation-delay: 1.7s; }
+        .section:nth-child(4) { animation-delay: 1.9s; }
+        .section:nth-child(5) { animation-delay: 2.1s; }
+        .section:nth-child(6) { animation-delay: 2.3s; }
+
+        .section-number {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--lila-primary);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 400;
+            margin-bottom: 35px;
+            color: var(--noir);
+            letter-spacing: 0.5px;
+        }
+
+        .text-content {
+            font-size: 17px;
+            line-height: 2;
+            margin-bottom: 25px;
+            color: var(--noir);
+            font-weight: 300;
+        }
+
+        .text-content strong {
+            font-weight: 500;
+            color: var(--lila-deep);
+        }
+
+        .text-emphasis {
+            font-size: 19px;
+            font-weight: 400;
+            color: var(--lila-deep);
+            font-style: italic;
+            margin: 40px 0;
+            line-height: 1.9;
+        }
+
+        /* Manifesto core statement */
+        .manifesto-statement {
+            margin: 120px 0;
+            padding: 80px 60px;
+            background: linear-gradient(135deg, var(--lila-soft) 0%, #f5f1fa 100%);
+            border-left: 3px solid var(--lila-primary);
+            position: relative;
+        }
+
+        .manifesto-statement::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b8a5d6' stroke-width='0.5'%3E%3Cpath d='M12 2C12 2 7 6 7 10C7 12.2091 8.79086 14 11 14C11 14 11 18 7 22C7 22 17 22 13 14C15.2091 14 17 12.2091 17 10C17 6 12 2 12 2Z'/%3E%3C/svg%3E");
+            opacity: 0.15;
+        }
+
+        .manifesto-label {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--lila-deep);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .manifesto-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            line-height: 1.5;
+            font-weight: 400;
+            color: var(--noir);
+            font-style: italic;
+        }
+
+        /* Timeline of transformation */
+        .timeline {
+            margin: 80px 0;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--lila-primary), transparent);
+        }
+
+        .timeline-item {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -66px;
+            top: 8px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--lila-primary);
+            box-shadow: 0 0 0 4px var(--ivory), 0 0 0 5px var(--lila-muted);
+        }
+
+        .timeline-phase {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--lila-deep);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .timeline-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--noir);
+            font-weight: 300;
+        }
+
+        /* Principles grid */
+        .principles-grid {
+            display: grid;
+            gap: 50px;
+            margin: 80px 0;
+        }
+
+        .principle-card {
+            padding: 45px 0;
+            border-bottom: 1px solid var(--lila-muted);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .principle-card:hover {
+            padding-left: 20px;
+            border-bottom-color: var(--lila-primary);
+        }
+
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 1px;
+            background: var(--lila-primary);
+            transition: width 0.4s ease;
+        }
+
+        .principle-card:hover::before {
+            width: 8px;
+        }
+
+        .principle-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 500;
+            margin-bottom: 18px;
+            color: var(--noir);
+        }
+
+        .principle-description {
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--noir);
+            font-weight: 300;
+        }
+
+        /* Quote block */
+        .quote-block {
+            text-align: center;
+            margin: 100px 0;
+            padding: 0 80px;
+        }
+
+        .quote-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            line-height: 1.6;
+            font-weight: 300;
+            color: var(--lila-deep);
+            font-style: italic;
+            position: relative;
+        }
+
+        .quote-text::before,
+        .quote-text::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--lila-primary);
+            margin: 30px auto;
+        }
+
+        /* Luxury list */
+        .luxury-list {
+            list-style: none;
+            margin: 50px 0;
+        }
+
+        .luxury-list li {
+            font-size: 17px;
+            line-height: 2;
+            margin-bottom: 25px;
+            padding-left: 35px;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .luxury-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--lila-primary);
+            font-size: 10px;
+            top: 8px;
+        }
+
+        /* Final message */
+        .finale {
+            margin-top: 140px;
+            padding: 100px 70px;
+            background: var(--noir);
+            color: var(--ivory);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .finale::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--lila-primary), transparent);
+        }
+
+        .finale-butterfly {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 40px;
+            opacity: 0.6;
+        }
+
+        .finale h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+        }
+
+        .finale p {
+            font-size: 18px;
+            line-height: 2;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+
+        .finale-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-style: italic;
+            margin: 50px auto;
+            max-width: 600px;
+            line-height: 1.7;
+            color: var(--lila-muted);
+        }
+
+        .signature {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(184, 165, 214, 0.3);
+        }
+
+        .signature-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .signature-tagline {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 60px 25px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .manifesto-statement {
+                padding: 50px 30px;
+            }
+
+            .manifesto-quote {
+                font-size: 26px;
+            }
+
+            .quote-block {
+                padding: 0 20px;
+            }
+
+            .quote-text {
+                font-size: 24px;
+            }
+
+            .finale {
+                padding: 60px 30px;
+            }
+
+            .finale h2 {
+                font-size: 36px;
+            }
+
+            .timeline {
+                padding-left: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Butterfly decorations -->
+    <svg class="butterfly-ornament butterfly-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100,100 Q80,50 60,40 Q40,30 30,50 Q20,70 40,90 Q60,110 80,100 Q80,100 100,100 Q120,100 120,100 Q140,110 160,90 Q180,70 170,50 Q160,30 140,40 Q120,50 100,100 Z" fill="#b8a5d6" opacity="0.3"/>
+        <path d="M100,100 Q80,150 60,160 Q40,170 30,150 Q20,130 40,110 Q60,90 80,100 Q80,100 100,100 Q120,100 120,100 Q140,90 160,110 Q180,130 170,150 Q160,170 140,160 Q120,150 100,100 Z" fill="#8b7ba8" opacity="0.3"/>
+    </svg>
+    
+    <svg class="butterfly-ornament butterfly-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100,100 Q80,50 60,40 Q40,30 30,50 Q20,70 40,90 Q60,110 80,100 Q80,100 100,100 Q120,100 120,100 Q140,110 160,90 Q180,70 170,50 Q160,30 140,40 Q120,50 100,100 Z" fill="#d4c8e8" opacity="0.4"/>
+        <path d="M100,100 Q80,150 60,160 Q40,170 30,150 Q20,130 40,110 Q60,90 80,100 Q80,100 100,100 Q120,100 120,100 Q140,90 160,110 Q180,130 170,150 Q160,170 140,160 Q120,150 100,100 Z" fill="#b8a5d6" opacity="0.4"/>
+    </svg>
+
+    <div class="container">
+        <header class="header">
+            <div class="header-label">Manifiesto Personal</div>
+            
+            <svg class="butterfly-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100,100 Q80,50 60,40 Q40,30 30,50 Q20,70 40,90 Q60,110 80,100 Q80,100 100,100 Q120,100 120,100 Q140,110 160,90 Q180,70 170,50 Q160,30 140,40 Q120,50 100,100 Z" fill="#b8a5d6"/>
+                <path d="M100,100 Q80,150 60,160 Q40,170 30,150 Q20,130 40,110 Q60,90 80,100 Q80,100 100,100 Q120,100 120,100 Q140,90 160,110 Q180,130 170,150 Q160,170 140,160 Q120,150 100,100 Z" fill="#8b7ba8"/>
+                <circle cx="100" cy="100" r="8" fill="#1a1a1a"/>
+            </svg>
+
+            <h1><strong>CANDELA</strong> ETCHETTO</h1>
+            <p class="header-subtitle">
+                Instructora · En formación como Coach Transpersonal & Health Coach · El arte de volver a ti misma, una y otra vez.
+            </p>
+        </header>
+
+        <section class="section">
+            <div class="section-number">— 01</div>
+            <h2 class="section-title">La Verdad Sin Edición</h2>
+            <p class="text-content">
+                Soy instructora de Taekwondo ITF. Ex abogada que trabajó en cargos del ámbito público y dejó ese mundo por el cuerpo. Actualmente me estoy formando en Coaching Transpersonal y Health Coaching —no porque necesite un título para validar mi experiencia, sino porque quiero profesionalizar las herramientas que ya viví en carne propia.
+            </p>
+            <p class="text-content">
+                Este último año, la depresión me llevó a los atracones. Mi cuerpo habló. Y en <strong>diciembre de 2025 decidí decir BASTA, habitarme y elegir.</strong> Volví a mi rutina, a mi entrenamiento, a mirarme sin lágrimas.
+            </p>
+            <p class="text-emphasis">
+                Todavía lucho con la dismorfia corporal. Todavía me afecta la balanza. Todavía estoy en proceso. Y está bien.
+            </p>
+        </section>
+
+        <div class="manifesto-statement">
+            <div class="manifesto-label">El Principio Fundamental</div>
+            <p class="manifesto-quote">
+                Desviarse no es un problema. La cuestión está en saber cómo volver.
+            </p>
+        </div>
+
+        <section class="section">
+            <div class="section-number">— 02</div>
+            <h2 class="section-title">La Metamorfosis Constante</h2>
+            <p class="text-content">
+                La mariposa no se transforma una sola vez. Cada día elige emerger. Cada día elige volar. El proceso nunca termina, sólo se repite con más gracia.
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-phase">El Origen</div>
+                    <p class="timeline-text">
+                        Una familia donde la estética era campo de batalla. Donde los espejos mentían y las palabras lastimaban. Mi relación con mi madre marcó el inicio de mi búsqueda.
+                    </p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-phase">La Oscuridad</div>
+                    <p class="timeline-text">
+                        Anorexia. Depresión. El vacío de no reconocerme cuando me miraba. Buscar en el control lo que solo podía encontrar en la aceptación.
+                    </p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-phase">El Despertar</div>
+                    <p class="timeline-text">
+                        Dejé el ámbito público. Encontré el Taekwondo. Mi cuerpo dejó de ser enemigo y se convirtió en maestro. Comprendí que la fuerza no está en controlar, sino en escuchar.
+                    </p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-phase">El Regreso</div>
+                    <p class="timeline-text">
+                        2024-2025. La depresión volvió. Los atracones hablaron por mí. Me desvié. Y entonces recordé: no se trata de no caer, sino de saber cómo volver.
+                    </p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-phase">Diciembre 2025</div>
+                    <p class="timeline-text">
+                        Decidí decir BASTA. Habitarme. Elegir. Volví a la rutina, al entrenamiento, a mirarme con compasión. La lucha continúa. Y eso no me hace menos. Me hace real.
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-content">
+                ¿Por qué te cuento esto? Porque <strong>no te voy a vender un cuento terminado.</strong> Te voy a mostrar el proceso vivo. El que recorro cada día.
+            </p>
+        </section>
+
+        <div class="quote-block">
+            <p class="quote-text">
+                No necesitas arreglarte. Necesitas recordar. Recordar que ya tienes todo lo que necesitas: tú misma.
+            </p>
+        </div>
+
+        <section class="section">
+            <div class="section-number">— 03</div>
+            <h2 class="section-title">Los Cinco Pilares</h2>
+            
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <h3 class="principle-title">Tu Cuerpo Como Aliado</h3>
+                    <p class="principle-description">
+                        Nunca estuvo en tu contra. Los atracones hablan. La anorexia habla. El cansancio habla. Tu cuerpo es tu brújula más honesta. La pregunta es: ¿estás escuchando?
+                    </p>
+                </div>
+
+                <div class="principle-card">
+                    <h3 class="principle-title">Validación Interna</h3>
+                    <p class="principle-description">
+                        Los likes no te salvan. Los comentarios no te definen. La mirada del otro no te completa. La única validación que importa es la tuya. Y es la más difícil de conseguir.
+                    </p>
+                </div>
+
+                <div class="principle-card">
+                    <h3 class="principle-title">El Poder del Regreso</h3>
+                    <p class="principle-description">
+                        Vas a desviarte. Mil veces. Y está bien. Lo importante no es la perfección, es saber encontrar el camino de vuelta a ti misma. Una y otra vez.
+                    </p>
+                </div>
+
+                <div class="principle-card">
+                    <h3 class="principle-title">Belleza Desde Adentro</h3>
+                    <p class="principle-description">
+                        La verdadera estética no se compra, no se filtra, no se maquilla. Emerge de una mujer que se habita a sí misma con amor. Que se mira con compasión.
+                    </p>
+                </div>
+
+                <div class="principle-card">
+                    <h3 class="principle-title">Tú Eres la Herramienta</h3>
+                    <p class="principle-description">
+                        No hay plan mágico. No hay gurú salvador. No hay atajo de 30 días. Ya tienes todo dentro de ti. Solo necesitas recordar cómo usarlo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-number">— 04</div>
+            <h2 class="section-title">Mi Formación</h2>
+            
+            <p class="text-content">
+                Soy <strong>Instructora de Taekwondo ITF</strong>. En el tatami encontré más respuestas sobre disciplina, resiliencia y autoconocimiento que en los años que trabajé en cargos del ámbito público como abogada.
+            </p>
+            <p class="text-content">
+                Actualmente estoy en formación como <strong>Coach Transpersonal y Health Coach</strong>. No porque necesite un papel para validar lo que viví, sino porque quiero darle estructura profesional a las herramientas que me salvaron.
+            </p>
+            <p class="text-emphasis">
+                Mi enfoque no viene de un libro de texto. Viene de haber estado en el piso, de haberme levantado, de haberme vuelto a caer. Y de estar aprendiendo, mientras camino, cómo convertir eso en un camino para otras.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="section-number">— 05</div>
+            <h2 class="section-title">Para Quién Es Esto</h2>
+            
+            <ul class="luxury-list">
+                <li>Para la mujer que está cansada de verse al espejo y sentir vacío.</li>
+                <li>Para la que invirtió años buscando validación en likes, en comentarios, en miradas ajenas.</li>
+                <li>Para la que sabe que hay algo más profundo esperándola, pero no sabe cómo llegar.</li>
+                <li>Para la que se desvió y no sabe cómo volver.</li>
+                <li>Para mí misma, hace años. Para ti, ahora. Para nosotras, siempre.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <div class="section-number">— 06</div>
+            <h2 class="section-title">Lo Que No Voy a Hacer</h2>
+            
+            <p class="text-content">
+                No voy a venderte la fantasía de que serás otra persona. No voy a prometerte cambios en 30 días. No voy a pedirte que abandones quién eres. No voy a perpetuar la mentira de la perfección.
+            </p>
+            <p class="text-emphasis">
+                Porque la única transformación que vale la pena es la que te devuelve a ti misma.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="section-number">— 07</div>
+            <h2 class="section-title">Lo Que Sí Voy a Hacer</h2>
+            
+            <ul class="luxury-list">
+                <li>Compartir mi experiencia real, sin filtros ni edición.</li>
+                <li>Guiarte con las herramientas que a mí me funcionaron en el camino.</li>
+                <li>Recordarte constantemente que ya tienes todo dentro de ti.</li>
+                <li>Acompañarte en el proceso de regreso a ti misma.</li>
+                <li>Mostrarte que desviarse no es el final, sino parte del camino.</li>
+            </ul>
+        </section>
+
+        <div class="finale">
+            <svg class="finale-butterfly" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100,100 Q80,50 60,40 Q40,30 30,50 Q20,70 40,90 Q60,110 80,100 Q80,100 100,100 Q120,100 120,100 Q140,110 160,90 Q180,70 170,50 Q160,30 140,40 Q120,50 100,100 Z" fill="currentColor"/>
+                <path d="M100,100 Q80,150 60,160 Q40,170 30,150 Q20,130 40,110 Q60,90 80,100 Q80,100 100,100 Q120,100 120,100 Q140,90 160,110 Q180,130 170,150 Q160,170 140,160 Q120,150 100,100 Z" fill="currentColor"/>
+            </svg>
+
+            <h2>Este Es el Camino</h2>
+            
+            <p>
+                No es fácil. No es rápido. No es perfecto. Pero es real. Y es tuyo.
+            </p>
+            
+            <p>
+                Como la mariposa, emergerás una y otra vez. Cada día es una nueva oportunidad de volver a ti misma.
+            </p>
+
+            <p class="finale-quote">
+                Desviarse no es un problema. La cuestión está en saber cómo volver.
+            </p>
+
+            <div class="signature">
+                <div class="signature-name">— Candela Etchetto</div>
+                <div class="signature-tagline">Instructora de Taekwondo ITF · Coach Transpersonal & Health Coach en formación</div>
+                <div class="signature-tagline" style="margin-top: 8px; opacity: 0.6;">En Proceso · En Transformación · En Vuelo</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
